@@ -12,7 +12,9 @@ import pdb
 class StoryDataset(torch.utils.data.Dataset):
     def __init__(self, image_path,transform, videl_len = 4, is_train = True):
         self.dir_path = image_path
-        self.descriptions = np.load(image_path +'CLEVR_dict.npy', allow_pickle = True, encoding='latin1' ).item()
+        self.descriptions = np.load(image_path +'CLEVR_dict.npy', allow_pickle=True,encoding='latin1').item() # added allow_pickle=True,encoding='bytes' - Deng
+        # print(self.descriptions.keys())
+        # self.descriptions = {str(key): str(value) for (key, value) in self.descriptions.items()}
         self.transforms = transform
         if is_train:
             self.srt = 100
@@ -69,7 +71,7 @@ class ImageDataset(torch.utils.data.Dataset):
     def __init__(self, image_path, transform,video_len = 4, is_train = True):
         self.dir_path = image_path
         self.transforms = transform
-        self.descriptions = np.load(image_path +'CLEVR_dict.npy', allow_pickle = True, encoding='latin1').item()
+        self.descriptions = np.load(image_path +'CLEVR_dict.npy', allow_pickle=True,encoding='latin1').item() # added allow_pickle=True,encoding='bytes' - Deng
         self.transforms = transform
         if is_train:
             self.srt = 100
