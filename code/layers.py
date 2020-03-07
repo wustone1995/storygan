@@ -20,7 +20,7 @@ class DynamicFilterLayer(nn.Module): #MergeLayer
         if self.grouping:
             shape = (input_shapes[0][0], input_shapes[0][1], input_shapes[0][2], input_shapes[0][3])
         else:
-            shape = (input_shape[0][0], 1, input_shapes[0][2], input_shapes[0][3])
+            shape = (input_shapes[0][0], 1, input_shapes[0][2], input_shapes[0][3])
         return shape
  
     def forward(self, _input, **kwargs):
